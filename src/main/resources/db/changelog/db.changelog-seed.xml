@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="
+          http://www.liquibase.org/xml/ns/dbchangelog
+          http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
+
+    <changeSet id="seed-suppliers" author="yourname">
+        <insert tableName="suppliers">
+            <column name="name" value="Supplier A"/>
+            <column name="email" value="suppliera@example.com"/>
+            <column name="phone" value="1234567890"/>
+            <column name="address" value="Address A"/>
+        </insert>
+        <insert tableName="suppliers">
+            <column name="name" value="Supplier B"/>
+            <column name="email" value="supplierb@example.com"/>
+            <column name="phone" value="9876543210"/>
+            <column name="address" value="Address B"/>
+        </insert>
+        <insert tableName="suppliers">
+            <column name="name" value="Supplier C"/>
+            <column name="email" value="supplierc@example.com"/>
+            <column name="phone" value="5555555555"/>
+            <column name="address" value="Address C"/>
+        </insert>
+    </changeSet>
+
+    <changeSet id="seed-products" author="yourname">
+        <insert tableName="products">
+            <column name="name" value="Golden Apple"/>
+            <column name="category" value="APPLE"/>
+            <column name="description" value="Premium quality apple"/>
+        </insert>
+        <insert tableName="products">
+            <column name="name" value="Red Apple"/>
+            <column name="category" value="APPLE"/>
+            <column name="description" value="Delicious red apple"/>
+        </insert>
+        <insert tableName="products">
+            <column name="name" value="Green Pear"/>
+            <column name="category" value="PEAR"/>
+            <column name="description" value="Crisp green pear"/>
+        </insert>
+        <insert tableName="products">
+            <column name="name" value="Yellow Pear"/>
+            <column name="category" value="PEAR"/>
+            <column name="description" value="Sweet yellow pear"/>
+        </insert>
+    </changeSet>
+
+    <changeSet id="seed-price-offers" author="yourname">
+        <insert tableName="price_offers">
+            <column name="supplier_id" valueNumeric="1"/>
+            <column name="product_id" valueNumeric="1"/>
+            <column name="price" valueNumeric="1.50"/>
+            <column name="valid_from" valueDate="2025-01-01"/>
+            <column name="valid_to" valueDate="2025-12-31"/>
+        </insert>
+        <insert tableName="price_offers">
+            <column name="supplier_id" valueNumeric="2"/>
+            <column name="product_id" valueNumeric="2"/>
+            <column name="price" valueNumeric="1.60"/>
+            <column name="valid_from" valueDate="2025-01-01"/>
+            <column name="valid_to" valueDate="2025-12-31"/>
+        </insert>
+        <insert tableName="price_offers">
+            <column name="supplier_id" valueNumeric="3"/>
+            <column name="product_id" valueNumeric="3"/>
+            <column name="price" valueNumeric="2.00"/>
+            <column name="valid_from" valueDate="2025-01-01"/>
+            <column name="valid_to" valueDate="2025-12-31"/>
+        </insert>
+    </changeSet>
+</databaseChangeLog>

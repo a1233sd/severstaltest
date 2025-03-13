@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="
+          http://www.liquibase.org/xml/ns/dbchangelog
+          http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
+
+    <!-- Таблица для поставщиков -->
+    <changeSet id="1-create-suppliers-table" author="yourname">
+        <createTable tableName="suppliers">
+            <column name="id" type="BIGINT" autoIncrement="true">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="name" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="email" type="VARCHAR(255)"/>
+            <column name="phone" type="VARCHAR(50)"/>
+            <column name="address" type="VARCHAR(255)"/>
+        </createTable>
+    </changeSet>
+
+    <!-- Таблица для продуктов -->
+    <changeSet id="2-create-products-table" author="yourname">
+        <createTable tableName="products">
+            <column name="id" type="BIGINT" autoIncrement="true">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="name" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <!-- тут ENUM -->
+            <column name="category" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="description" type="VARCHAR(500)"/>
+        </createTable>
+    </changeSet>
+
+    <!-- Таблица для ценовых предложений -->
+    <changeSet id="3-create-price_offers-table" author="yourname">
+        <createTable tableName="price_offers">
+            <column name="id" type="BIGINT" autoIncrement="true">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="supplier_id" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="product_id" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="price" type="DECIMAL(19,2)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="valid_from" type="DATE">
+                <constraints nullable="false"/>
+            </column>
+            <column name="valid_to" type="DATE">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+        <addForeignKeyConstraint baseTableName="price_offers" baseColumnNames="supplier_id"
+                                 constraintName="fk_priceoffer_supplier"
+                                 referencedTableName="suppliers" referencedColumnNames="id"/>
+        <addForeignKeyConstraint baseTableName="price_offers" baseColumnNames="product_id"
+                                 constraintName="fk_priceoffer_product"
+                                 referencedTableName="products" referencedColumnNames="id"/>
+    </changeSet>
+
+    <!-- Таблица для поставок -->
+    <changeSet id="4-create-deliveries-table" author="yourname">
+        <createTable tableName="deliveries">
+            <column name="id" type="BIGINT" autoIncrement="true">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="supplier_id" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="delivery_date" type="DATE">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+        <addForeignKeyConstraint baseTableName="deliveries" baseColumnNames="supplier_id"
+                                 constraintName="fk_delivery_supplier"
+                                 referencedTableName="suppliers" referencedColumnNames="id"/>
+    </changeSet>
+
+    <!-- Таблица для элементов поставок -->
+    <changeSet id="5-create-delivery_items-table" author="yourname">
+        <createTable tableName="delivery_items">
+            <column name="id" type="BIGINT" autoIncrement="true">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="delivery_id" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="product_id" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="quantity" type="DECIMAL(19,2)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="cost" type="DECIMAL(19,2)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+        <addForeignKeyConstraint baseTableName="delivery_items" baseColumnNames="delivery_id"
+                                 constraintName="fk_deliveryitem_delivery"
+                                 referencedTableName="deliveries" referencedColumnNames="id"/>
+        <addForeignKeyConstraint baseTableName="delivery_items" baseColumnNames="product_id"
+                                 constraintName="fk_deliveryitem_product"
+                                 referencedTableName="products" referencedColumnNames="id"/>
+    </changeSet>
+
+    <include file="db.changelog-seed.xml" relativeToChangelogFile="true"/>
+</databaseChangeLog>
