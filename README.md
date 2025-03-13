@@ -1,8 +1,8 @@
 ## Задание 3
---
-branch 
 
-- backend (Java, spring boot)
-- frontend
---
-## В каждой ветке свой readme
+### Ветки:
+- **backend** (Java, Spring Boot)
+- **frontend**
+
+### Описание:
+В каждой ветке должен быть свой `README.md` файл.
