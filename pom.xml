@@ -15,7 +15,7 @@
 	<groupId>com.fructflow</groupId>
 	<artifactId>fructflow</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<packaging>jar</packaging>
+	<packaging>war</packaging>
 	<name>fructflow</name>
 	<description>Demo project for Spring Boot</description>
 
@@ -61,6 +61,12 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>io.swagger</groupId>
+			<artifactId>swagger-annotations</artifactId>
+			<version>1.6.14</version>
 		</dependency>
 	</dependencies>
 
