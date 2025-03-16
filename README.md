@@ -50,6 +50,7 @@ Swagger UI будет доступен по адресу:
 `http://localhost:8080/swagger-ui/index.html`
 
 Пароль к БД в docker-compose
+
 ---
 
 ## Гибкая настройка параметров без пересборки
