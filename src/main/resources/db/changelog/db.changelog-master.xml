@@ -7,7 +7,7 @@
           http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
 
     <!-- Таблица для поставщиков -->
-    <changeSet id="1-create-suppliers-table" author="yourname">
+    <changeSet id="1-create-suppliers-table" author="VVM">
         <createTable tableName="suppliers">
             <column name="id" type="BIGINT" autoIncrement="true">
                 <constraints primaryKey="true" nullable="false"/>
@@ -22,7 +22,7 @@
     </changeSet>
 
     <!-- Таблица для продуктов -->
-    <changeSet id="2-create-products-table" author="yourname">
+    <changeSet id="2-create-products-table" author="VVM">
         <createTable tableName="products">
             <column name="id" type="BIGINT" autoIncrement="true">
                 <constraints primaryKey="true" nullable="false"/>
@@ -39,7 +39,7 @@
     </changeSet>
 
     <!-- Таблица для ценовых предложений -->
-    <changeSet id="3-create-price_offers-table" author="yourname">
+    <changeSet id="3-create-price_offers-table" author="VVM">
         <createTable tableName="price_offers">
             <column name="id" type="BIGINT" autoIncrement="true">
                 <constraints primaryKey="true" nullable="false"/>
@@ -69,7 +69,7 @@
     </changeSet>
 
     <!-- Таблица для поставок -->
-    <changeSet id="4-create-deliveries-table" author="yourname">
+    <changeSet id="4-create-deliveries-table" author="VVM">
         <createTable tableName="deliveries">
             <column name="id" type="BIGINT" autoIncrement="true">
                 <constraints primaryKey="true" nullable="false"/>
@@ -87,7 +87,7 @@
     </changeSet>
 
     <!-- Таблица для элементов поставок -->
-    <changeSet id="5-create-delivery_items-table" author="yourname">
+    <changeSet id="5-create-delivery_items-table" author="VVM">
         <createTable tableName="delivery_items">
             <column name="id" type="BIGINT" autoIncrement="true">
                 <constraints primaryKey="true" nullable="false"/>

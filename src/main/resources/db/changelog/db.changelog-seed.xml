@@ -6,7 +6,7 @@
           http://www.liquibase.org/xml/ns/dbchangelog
           http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
 
-    <changeSet id="seed-suppliers" author="yourname">
+    <changeSet id="seed-suppliers" author="VVM">
         <insert tableName="suppliers">
             <column name="name" value="Supplier A"/>
             <column name="email" value="suppliera@example.com"/>
@@ -27,7 +27,7 @@
         </insert>
     </changeSet>
 
-    <changeSet id="seed-products" author="yourname">
+    <changeSet id="seed-products" author="VVM">
         <insert tableName="products">
             <column name="name" value="Golden Apple"/>
             <column name="category" value="APPLE"/>
@@ -50,7 +50,7 @@
         </insert>
     </changeSet>
 
-    <changeSet id="seed-price-offers" author="yourname">
+    <changeSet id="seed-price-offers" author="VVM">
         <insert tableName="price_offers">
             <column name="supplier_id" valueNumeric="1"/>
             <column name="product_id" valueNumeric="1"/>
@@ -71,6 +71,33 @@
             <column name="price" valueNumeric="2.00"/>
             <column name="valid_from" valueDate="2025-01-01"/>
             <column name="valid_to" valueDate="2025-12-31"/>
+        </insert>
+    </changeSet>
+
+    <changeSet id="seed-deliveries" author="yourname">
+        <!-- Предполагается, что поставщик с id=1 и id=2 существуют -->
+        <insert tableName="deliveries">
+            <column name="supplier_id" valueNumeric="1"/>
+            <column name="delivery_date" valueDate="2025-03-10"/>
+        </insert>
+        <insert tableName="deliveries">
+            <column name="supplier_id" valueNumeric="2"/>
+            <column name="delivery_date" valueDate="2025-03-11"/>
+        </insert>
+    </changeSet>
+
+    <changeSet id="seed-delivery-items" author="yourname">
+        <insert tableName="delivery_items">
+            <column name="delivery_id" valueNumeric="1"/>
+            <column name="product_id" valueNumeric="1"/>
+            <column name="quantity" valueNumeric="5.00"/>
+            <column name="cost" valueNumeric="7.50"/>
+        </insert>
+        <insert tableName="delivery_items">
+            <column name="delivery_id" valueNumeric="2"/>
+            <column name="product_id" valueNumeric="2"/>
+            <column name="quantity" valueNumeric="3.00"/>
+            <column name="cost" valueNumeric="4.80"/>
         </insert>
     </changeSet>
 </databaseChangeLog>

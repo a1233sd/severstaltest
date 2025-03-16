@@ -532,6 +532,41 @@
 					"response": []
 				}
 			]
+		},
+		{
+			"name": "Reports",
+			"item": [
+				{
+					"name": "Get report",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/reports?startDate={{startDate}}&endDate={{endDate}}",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"reports"
+							],
+							"query": [
+								{
+									"key": "startDate",
+									"value": "2025-03-04"
+								},
+								{
+									"key": "endDate",
+									"value": "2025-03-28"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
 		}
 	]
 }
