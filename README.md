@@ -7,8 +7,8 @@
 ```bash
 cd .\fructflow-frontend\
 
-```bash
+
 npm install
 
-```bash
+
 npm run dev
