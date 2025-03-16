@@ -123,7 +123,7 @@ const DeliveryForm: React.FC<DeliveryFormProps> = ({ initialDelivery, supplierOp
                             <label>Количество:</label>
                             <input
                                 type="number"
-                                step="0.01"
+                                step="1"
                                 name="quantity"
                                 value={item.quantity}
                                 onChange={(e) => handleItemChange(index, e)}
