@@ -1,8 +1,14 @@
-## Задание 3
 
-### Ветки:
-- **backend** (Java, Spring Boot)
-- **frontend**
+## Установка зависимостей
 
-### Описание:
-В каждой ветке свой `README.md` файл.
+Убедитесь, что у вас установлен Node.js. Затем в корневой папке проекта выполните:
+
+
+```bash
+cd .\fructflow-frontend\
+
+
+npm install
+
+
+npm run dev
