@@ -26,7 +26,7 @@ const ReportTable: React.FC<ReportTableProps> = ({ reports }) => {
                         <tr key={index}>
                             <td>{report.supplierId}</td>
                             <td>{report.supplierName}</td>
-                            <td>{report.totalWeight}</td>
+                            <td>{report.totalQuantity}</td>
                             <td>{report.totalCost}</td>
                         </tr>
                     ))}
