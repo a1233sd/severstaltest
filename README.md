@@ -2,7 +2,7 @@
 
 ### Ветки:
 - **backend** (Java, Spring Boot)
-- **frontend** (React + TS)
+- **frontend** (React + TS), сборка на vite
 
 ### Описание:
 В каждой ветке свой `README.md` файл.
